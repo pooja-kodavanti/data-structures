@@ -2,7 +2,9 @@ var LinkedList = function() {
   var list = {};
   list.head = null;
   list.tail = null;
+  
 
+  // Big-O:   O(1)
   list.addToTail = function(value) {
     var current = new Node(value);
     if(!list.head) {
@@ -14,6 +16,7 @@ var LinkedList = function() {
     
   };
 
+  // Big-O:   O(1)
   list.removeHead = function() {
     var current = list.head;
     // console.log(list)
@@ -25,10 +28,11 @@ var LinkedList = function() {
     return current.value;
   };
 
+  // Big-O:   O(n)
   list.contains = function(target) {
     var current = list.head;
     while (current !== null) {
-     console.log(current.value)
+     // console.log(current.value)
       if (current.value == target) {
         return true;
       }

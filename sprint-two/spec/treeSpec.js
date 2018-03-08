@@ -10,7 +10,7 @@ describe('tree', function() {
     expect(tree.contains).to.be.a('function');
     expect(tree.hasOwnProperty('value')).to.equal(true);
   });
-
+  
   it('should add children to the tree', function() {
     tree.addChild(5);
     expect(tree.children[0].value).to.equal(5);
@@ -18,6 +18,7 @@ describe('tree', function() {
 
   it('should return true for a value that the tree contains', function() {
     tree.addChild(5);
+  
     expect(tree.contains(5)).to.equal(true);
   });
 
