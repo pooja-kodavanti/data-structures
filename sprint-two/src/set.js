@@ -9,7 +9,6 @@ var setPrototype = {};
 // Big-O O(1)
 setPrototype.add = function(item) {
   this._storage.push(item);
-  console.log(this._storage)
 };
 
 // Big-O O(n)
