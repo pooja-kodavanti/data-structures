@@ -29,7 +29,7 @@ BinarySearchTree.prototype.insert = function(value) {
 // O(log n)
 BinarySearchTree.prototype.contains = function(target) {
   var hasNode = false;
-  console.log(this.right);
+  
   //if node value is equal to target, return true
   //if node value < target, return .contains(node.left) (vv for right)
   var checkTree = function(node) {
@@ -41,7 +41,7 @@ BinarySearchTree.prototype.contains = function(target) {
     if (target < node.value) {
       if (node.left) {
         checkTree(node.left);
-        console.log(checkTree(node.left))
+        
       }
     }
     if (target > node.value) {

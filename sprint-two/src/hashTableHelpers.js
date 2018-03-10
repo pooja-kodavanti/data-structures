@@ -22,7 +22,10 @@ var LimitedArray = function(limit) {
   limitedArray.set = function(index, value) {
     checkLimit(index);
     storage[index] = value;
+    // console.log(index)
+    // console.log(storage[index]); // array of ['steven, segal']
   };
+
   limitedArray.each = function(callback) {
     for (var i = 0; i < storage.length; i++) {
       callback(storage[i], i, storage);

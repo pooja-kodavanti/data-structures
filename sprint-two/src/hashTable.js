@@ -11,42 +11,51 @@ var hash = new HashTable;
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var tuple = [k, v];
+  var bucket = this._storage.get(index);
 
-  if (!this._storage[index]) {
-    this._storage[index] = [tuple];
-  }
-  
-  for (var i = 0; i < this._storage[index].length; i++) {
-    if (this._storage[index][i][0] === k) {
-      this._storage[index][i][1] = v;
-    } else {
-      this._storage[index].push(tuple);
+  if (!bucket) {
+    this._storage.set(index,[]) 
+  } 
+
+  this._storage.each(function(buck, i) {
+    if (i === index) {
+      var bucketLength = buck.length;
+      buck[bucketLength] = tuple;
     }
-  }
+  });
+
 };
 
 // Big-O O(n)
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
+  var result;
 
-  if (!this._storage[index]) {
-    return undefined;
-  }
-  
-  var bucket = this._storage[index];
-
-  for (var i = 0; i < bucket.length; i++) {
-    if (bucket[i][0] === k) {
-      return bucket[i][1]; 
+  this._storage.each(function(buck, i) {
+    if (i === index) {
+      for (var i = 0; i < buck.length; i++) {
+        if (buck[i][0] === k) {
+        result = buck[i][1]; 
+        }
+      }
     }
-  }
-  return undefined;
+  });
+  return result;
 };
 
 // Big-O O(1)
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  this._storage[index] = undefined;
+
+  this._storage.each(function(buck, i) {
+    if (i === index) {
+      for (var i = 0; i < buck.length; i++) {
+        if (buck[i][0] === k) {
+          buck.splice(i,1);
+        }
+      }
+    }
+  });
 };
 
 
