@@ -48,4 +48,21 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  //   it('Should return a sorted array', function() {
+  //   binarySearchTree.insert(10);
+  //   binarySearchTree.insert(16);
+  //   binarySearchTree.insert(11);
+  //   binarySearchTree.insert(15);
+  //   binarySearchTree.insert(14);
+  //   binarySearchTree.insert(12);
+  //   binarySearchTree.insert(13);
+  //   binarySearchTree.sortArray();
+  // });
+
+
+
+
+
+
 });

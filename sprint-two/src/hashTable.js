@@ -14,16 +14,33 @@ HashTable.prototype.insert = function(k, v) {
   var bucket = this._storage.get(index);
 
   if (!bucket) {
-    this._storage.set(index,[]) 
+    this._storage.set(index,[tuple]) 
   } 
 
+  // Case where did not find existing key
+  var wasFound = false;
   this._storage.each(function(buck, i) {
     if (i === index) {
-      var bucketLength = buck.length;
-      buck[bucketLength] = tuple;
+      if (buck.length > 0) {
+        for (var j = 0; j < buck.length; j++) {
+          if (buck[j][0] === k) {
+            buck[j][1] = v;
+            wasFound = true;
+          }
+        }
+      }
+
     }
   });
-
+  // Case where did not find existing key
+  if (wasFound === false) {
+    this._storage.each(function(buck, i) {
+      if (i === index) {
+        var bucketLength = buck.length;
+        buck[bucketLength] = tuple;
+      }
+    });
+  }
 };
 
 // Big-O O(n)
