@@ -107,9 +107,59 @@ BinarySearchTree.prototype.getHeight = function() {
 
 };
 
-BinarySearchTree.prototype.rebalanceTree = function() {
+// BinarySearchTree.prototype.rebalanceTree = function(array) {
+//   // Create top node
 
-};
+//   var mid = Math.floor((array.length - 1) / 2);
+//   var balancedTree = new BinarySearchTree(array[mid]);
+  
+
+//   var balanceTree = function (array) {
+//     // this.insert(leftArray[mid])
+//     // this.insert(rightArray[mid])
+
+    
+
+//     balancedTree.insert(array[mid])
+//     var leftArray =
+//     var rightArray = 
+    
+    
+//     if (leftArray.length > 0) {  
+//       this.insert(leftArray[middle])
+//     }
+  
+//   balanceTree(array)
+
+
+
+  
+  
+  
+//   node.left = new BinarySearchTree(value);
+//   this.value array[midIndex];
+
+//   // left case
+//   if (leftArray.length > 0) {  
+//     this.left = rebalanceTree(leftArray);
+//     node.left = new BinarySearchTree(value);
+//   }
+
+//   // right case
+//   if (rightArray.length > 0) {  
+//     this.right = rebalanceTree(rightArray);
+//   }  
+
+//   return array[mid];
+//   // find mid point of passed in array
+//   // create new instance with value = midpoint 
+//   // slice left array, recurse
+//   // this.value = middle element of array
+//   // this.left = rebalanceTree(array slice left side)
+//   // this.left = rebalanceTree(array slice right side)
+  
+//   // return middle point of array
+ // };
 
 
 /*
